@@ -21,11 +21,12 @@ public class EmployeeWage {
 		{
 		case FULL_TIME:
 			empWage=WAGE_PER_HOUR*FULL_DAY_HOUR;
-			System.out.println("Employee Wage :" +empWage);
+			
+			System.out.println("Employee Wage for " +FULL_DAY_HOUR  +" hours : "+empWage);
 			break;
 		case PART_TIME:
 			empWage=WAGE_PER_HOUR*HALF_DAY_HOUR;
-			System.out.println("Employee Wage :" +empWage);
+			System.out.println("Employee Wage "+HALF_DAY_HOUR+" hours : " +empWage);
 			break;
 		default:
 			System.out.println("Employee is absent");
