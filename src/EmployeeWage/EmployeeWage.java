@@ -1,12 +1,12 @@
+
 package EmployeeWage;
 
 public class EmployeeWage {
-	public static final int FULL_TIME=1;
-	public static final int PART_TIME=2;
 	public static final int WAGE_PER_HOUR=20;
 	public static final int FULL_DAY_HOUR=8;
 	public static final int HALF_DAY_HOUR=4;
-	public static int empWage=0;
+	public static int days=0;
+	public static int totalWorkingHrs=0;
 	public static int totalempWage=0;
 	public static int empHrs=0;
 	
@@ -18,27 +18,43 @@ public class EmployeeWage {
 	}
 	public static void ComputeEmpWageBasedOnHrs()
 	{
-		for(int day=0;day<=20;day++)
+		while((days<20)&&(totalWorkingHrs<100))
 		{
-		int empCheck=Attendance();
-		switch(empCheck)
-		{
-		
-		case FULL_TIME:
-			empHrs=empHrs+FULL_DAY_HOUR;
-			break;	
-		case PART_TIME:
-			empHrs=empHrs+HALF_DAY_HOUR;
-			break;
-		default:
-			empHrs=0;
+			int empCheck=Attendance();
+			if(empCheck == 1)
+			{
+				System.out.println("Day "+days++);
+				totalWorkingHrs=totalWorkingHrs+FULL_DAY_HOUR;
+				System.out.println("Employee is present for full time");
+				System.out.println("TotalWorkingHrs : "+totalWorkingHrs);
+				
+			}
+			else if(empCheck == 2)
+			{
+				System.out.println("Day "+days++);
+				totalWorkingHrs=totalWorkingHrs+HALF_DAY_HOUR;
+				System.out.println("Employee is present for half time");
+				System.out.println("TotalWorkingHrs : "+totalWorkingHrs);
+				
+			}
+			else
+			{
+				System.out.println("Day "+days++);
+				totalWorkingHrs=totalWorkingHrs+0;
+				System.out.println("Employee absent");
+				System.out.println("TotalWorkingHrs : "+totalWorkingHrs);
+				
+			}
 			
 		}
+		totalempWage=WAGE_PER_HOUR*totalWorkingHrs;
+		System.out.println("Total Employee Wage : "+totalempWage);
+		
+		
+		
 		
 	}
-		totalempWage=empHrs*WAGE_PER_HOUR;
-		System.out.println("Total Employee Wage : "+totalempWage);
-	}
+		
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
