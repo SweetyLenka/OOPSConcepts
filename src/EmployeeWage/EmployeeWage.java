@@ -1,18 +1,23 @@
 package EmployeeWage;
 
 public class EmployeeWage {
+	public static final int WAGE_PER_HOUR=20;
+	public static final int FULL_DAY_HOUR=8;
+	public static int empWage=0;
+	
 	public static int Attendance()
 	{
 		int attendance= (int) Math.floor(Math.random()*10%2);
 		return attendance;
 		
 	}
-	public static void ComputeAttendance()
+	public static void ComputeEmpWage()
 	{
 		int empCheck=Attendance();
 		if(empCheck==1)
 		{
-			System.out.println("Employee is present");
+			empWage=WAGE_PER_HOUR*FULL_DAY_HOUR;
+			System.out.println("Employee Wage : "+empWage);
 		}
 		else
 		{
@@ -23,7 +28,8 @@ public class EmployeeWage {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ComputeAttendance();
+		EmployeeWage empWage=new EmployeeWage();
+		empWage.ComputeEmpWage();
 		
 	}
 
