@@ -16,6 +16,7 @@ public class EmployeeWage {
 		return attendance;
 		
 	}
+	
 	public static void ComputeEmpWageBasedOnHrs()
 	{
 		while((days<20)&&(totalWorkingHrs<100))
@@ -47,19 +48,23 @@ public class EmployeeWage {
 			}
 			
 		}
+	}
+		//Method to Compute Employee Wage
+	
+		
+	public static void ComputeEmpWage() {
+		// TODO Auto-generated method stub
 		totalempWage=WAGE_PER_HOUR*totalWorkingHrs;
 		System.out.println("Total Employee Wage : "+totalempWage);
-		
-		
-		
-		
 	}
-		
+
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EmployeeWage empWage=new EmployeeWage();
 		empWage.ComputeEmpWageBasedOnHrs();
+		empWage.ComputeEmpWage();
 	}
 
 }
